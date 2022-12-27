@@ -20,8 +20,7 @@ local function form_buffer(window_id)
 
     local lines = {}
 
-    local ok, winbar_setting = pcall(api.nvim_get_option, "winbar")
-    if ok and winbar_setting ~= "" then
+    if vim.o.winbar ~= "" then
         s.number_of_lines_in_display_buffer = api.nvim_win_get_height(window_id) - 1
     else
         s.number_of_lines_in_display_buffer = api.nvim_win_get_height(window_id)
